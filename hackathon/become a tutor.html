@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learnify</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212; /* Same dark background */
+      color: #e0e0e0; /* Light text color */
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      width: 100%;
+      padding: 15px 20px;
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ffb74d;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0 10px;
+    }
+
+    .nav-links a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: #ffb74d;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 500px;
+      margin-right: 20px;
+    }
+
+    
+
+    /* Tutor container styles */
+    .tutor-container {
+      background-color: #1e1e1e;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      width: 100%;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+
+    .tutor-container h1 {
+      text-align: center;
+      color: #ffb74d;
+      margin-bottom: 20px;
+    }
+
+    .tutor-container form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tutor-container label {
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #e0e0e0;
+    }
+
+    .tutor-container input, .tutor-container textarea, .tutor-container select {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 2px solid #292929;
+      border-radius: 8px;
+      background-color: #292929;
+      color: #e0e0e0;
+      font-size: 1rem;
+    }
+
+    .tutor-container input:focus, .tutor-container textarea:focus, .tutor-container select:focus {
+      border-color: #ffb74d;
+      outline: none;
+    }
+
+    .tutor-container button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      background-color: black;
+      transition: all 0.3s ease;
+    }
+
+    .tutor-container button:hover {
+      background-color: #1a1a1a;
+      box-shadow: 0 4px 10px rgba(255, 183, 77, 0.5);
+    }
+
+    /* Media Query for smaller screens */
+    @media (max-width: 768px) {
+      .search {
+        max-width: 100%;
+      }
+
+      .search__input {
+        width: 100%;
+        margin-right: 0;
+      }
+
+      .tutor-container {
+        padding: 20px;
+      }
+
+      .navbar {
+        padding: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        margin-top: 10px;
+        display: block;
+      }
+
+      .nav-links li {
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Learnify</div>
+   
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#" class="login">Login/Signup</a></li>
+    </ul>
+  </nav>
+
+  <div class="tutor-container">
+    <h1>Become a Tutor</h1>
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email address" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+      <label for="subjects">Subjects You Can Teach</label>
+      <input type="text" id="subjects" placeholder="e.g., Math, Science, English" required>
+
+      <label for="experience">Teaching Experience</label>
+      <textarea id="experience" placeholder="Describe your teaching experience" rows="4" required></textarea>
+
+      <label for="availability">Availability</label>
+      <select id="availability" required>
+        <option value="" disabled selected>Select your availability</option>
+        <option value="part-time">Part-Time</option>
+        <option value="full-time">Full-Time</option>
+        <option value="weekends">Weekends Only</option>
+      </select>
+
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+</body>
+</html>

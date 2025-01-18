@@ -1,0 +1,232 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #121212; /* Dark background for the body */
+  color: #e0e0e0; /* Light text color */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1e1e1e; /* Dark background for the navbar */
+  color: #e0e0e0; /* Light text color */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: #e0e0e0; /* Light text color for links */
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ffb74d; /* Highlight on hover */
+  transform: scale(1.1); /* Slight scaling effect */
+}
+
+.nav-links .login {
+  font-weight: bold;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('https://via.placeholder.com/1920x1080'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  color: #f4f4f4; /* Light text color */
+  text-align: center;
+  padding-top: 70px; /* To account for fixed navbar */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #ffb74d; /* Highlighted main text */
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center;
+  gap: 20px; /* Space between the buttons */
+  margin-top: 30px;
+}
+
+.cta-btn {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  color: white; /* Text color */
+  background-color: black; /* Black button background */
+  border-radius: 10px; /* Rounded corners */
+  border: 2px solid transparent; /* Border for glowing effect */
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+
+.cta-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px; /* Matches button's border radius */
+  padding: 2px; /* Space for the glow effect */
+  background: linear-gradient(45deg, #ffb74d, #ff77ff, #77ffff);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.cta-btn:hover {
+  background-color: #1a1a1a; /* Slightly lighter black on hover */
+  transform: translateY(-3px); /* Adds a lift effect */
+  box-shadow: 0 10px 20px rgba(255, 183, 77, 0.5); /* Glow effect on hover */
+}
+
+.secondary {
+  background-color: black; /* Same as the primary button */
+}
+
+.secondary:hover {
+  background-color: #1a1a1a; /* Slightly lighter black on hover */
+  box-shadow: 0 10px 20px rgba(255, 183, 77, 0.5); /* Glow effect on hover */
+}
+
+/* Features Section */
+.features {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #1e1e1e; /* Dark background for the section */
+}
+
+.features h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffb74d; /* Highlight for section title */
+}
+
+.features-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.feature {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  color: white; /* Text color */
+  background-color: black; /* Black button background */
+  border-radius: 10px; /* Rounded corners */
+  border: 2px solid transparent; /* Border for glowing effect */
+  transition: all 0.3s ease-in-out;
+  position: relative;
+}
+.feature::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px; /* Matches button's border radius */
+  padding: 2px; /* Space for the glow effect */
+  background: linear-gradient(45deg, #ffb74d, #ff77ff, #77ffff);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+}
+.feature:hover {
+  background-color: #1a1a1a; /* Slightly lighter black on hover */
+  transform: translateY(-3px); /* Adds a lift effect */
+  box-shadow: 0 10px 20px rgba(255, 183, 77, 0.5);
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 50px 20px;
+  background-color: #121212; /* Dark background for the testimonials */
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffb74d; /* Highlight for section title */
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.testimonial {
+  font-style: italic;
+  color: #e0e0e0;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.testimonial:hover {
+  transform: scale(1.05); /* Slight scaling effect */
+  color: #ffcc80; /* Highlighted color on hover */
+}
+
+/* Footer */
+.footer {
+  background-color: #1e1e1e; /* Dark background for the footer */
+  color: #e0e0e0; /* Light text color */
+  padding: 15px 20px;
+  text-align: center;
+  border-top: 2px solid #292929; /* Subtle border at the top */
+}
+
+.footer-links a {
+  color: #ffb74d; /* Highlight color for footer links */
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: #e0e0e0; /* Light color on hover */
+}
