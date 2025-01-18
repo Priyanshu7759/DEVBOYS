@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutor Dashboard - Learnify</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      width: 100%;
+      padding: 15px 20px;
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffb74d;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: #ffb74d;
+    }
+
+    /* Dashboard */
+    .dashboard {
+      padding: 30px;
+    }
+
+    .welcome {
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+    }
+
+    /* Profile Info */
+    .profile-info {
+      margin-bottom: 40px;
+      background-color: #292929;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .profile-info img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .profile-info h3 {
+      color: #ffb74d;
+    }
+
+    .profile-info button {
+      background-color: #ffb74d;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .profile-info button:hover {
+      background-color: #f57c00;
+    }
+
+    /* Manage Classes & Messages */
+    .section {
+      margin-bottom: 40px;
+      background-color: #292929;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .section h4 {
+      color: #ffb74d;
+    }
+
+    .section p {
+      color: #e0e0e0;
+    }
+
+    .section button {
+      background-color: #ffb74d;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .section button:hover {
+      background-color: #f57c00;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #1e1e1e;
+      padding: 20px;
+      color: #e0e0e0;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Learnify</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">My Profile</a></li>
+      <li><a href="#">Manage Classes</a></li>
+      <li><a href="#">Messages</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- Tutor Dashboard -->
+  <div class="dashboard">
+    <div class="welcome">
+      <h2>Welcome back, John Doe!</h2>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile-info">
+      <div style="display: flex; align-items: center;">
+        <img src="https://via.placeholder.com/100" alt="Tutor Photo">
+        <div>
+          <h3>John Doe</h3>
+          <p><strong>Subject:</strong> Math</p>
+          <p><strong>Availability:</strong> Full-Time</p>
+          <p><strong>Price:</strong> $30/hr</p>
+          <button>Edit Profile</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manage Classes Section -->
+    <div class="section">
+      <h4>Manage Classes</h4>
+      <p><strong>Subjects:</strong> Math</p>
+      <p><strong>Availability:</strong> Monday - Friday, 9 AM - 5 PM</p>
+      <p><strong>Set Price:</strong> $30/hr</p>
+      <button>Edit Classes</button>
+    </div>
+
+    <!-- Messages Section -->
+    <div class="section">
+      <h4>Messages</h4>
+      <p>You have 2 unread messages.</p>
+      <button>View Messages</button>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2025 Learnify. All rights reserved.</p>
+  </div>
+
+</body>
+</html>
