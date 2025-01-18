@@ -1,0 +1,43 @@
+/* Dark Theme */
+body {
+    background-color: #121212; /* Dark background */
+    color: #ffffff;           /* Light text color for contrast */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Links */
+a {
+    color: #bb86fc; /* Light purple for links */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff79c6; /* Hover effect */
+}
+
+/* Cards or Containers */
+.course-card {
+    background-color: #1e1e1e; /* Slightly lighter dark background */
+    color: #ffffff;           /* Text remains light */
+    border: 1px solid #333333; /* Subtle border for contrast */
+    padding: 1em;
+    margin: 1em;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+button {
+    background-color: #333333; /* Dark button background */
+    color: #ffffff;            /* Light button text */
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #444444; /* Slightly lighter on hover */
+}
