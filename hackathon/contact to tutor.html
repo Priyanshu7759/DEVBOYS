@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find a Tutor - Learnify</title>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212; /* Dark background */
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar styles */
+    .navbar {
+      width: 100%;
+      padding: 15px 20px;
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffb74d;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: #ffb74d;
+    }
+
+    /* Search Section */
+    .search-section {
+      padding: 70px 20px;
+      background-color: #292929;
+      text-align: center;
+      border-bottom: 2px solid #ffb74d;
+    }
+
+    .search-section h2 {
+      color: #ffb74d;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .search-section input,
+    .search-section button {
+      padding: 12px;
+      margin: 10px;
+      border: 2px solid #292929;
+      border-radius: 8px;
+      background-color: #292929;
+      color: #e0e0e0;
+      font-size: 1rem;
+      width: 250px;
+    }
+
+    .search-section button {
+      background-color: #ffb74d;
+      cursor: pointer;
+    }
+
+    .search-section button:hover {
+      background-color: #f57c00;
+    }
+
+    .filter-icon {
+      margin-left: 10px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #ffb74d;
+    }
+
+    .filter-icon:hover {
+      color: #f57c00;
+    }
+
+    /* Filter Modal */
+    .filter-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .filter-modal-content {
+      background-color: #292929;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      text-align: center;
+    }
+
+    .filter-modal-content label {
+      color: #ffb74d;
+      display: block;
+      margin: 10px 0;
+    }
+
+    .filter-modal-content select {
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #292929;
+      border-radius: 8px;
+      background-color: #292929;
+      color: #e0e0e0;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    .filter-modal-content button {
+      padding: 10px;
+      background-color: #ffb74d;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      width: 100%;
+    }
+
+    .filter-modal-content button:hover {
+      background-color: #f57c00;
+    }
+
+    .close-btn {
+      color: #ffb74d;
+      font-size: 1.5rem;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    /* Tutor List Section */
+    .tutor-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .tutor-card {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .tutor-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      background-color: #292929;
+    }
+
+    .tutor-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .tutor-card h3 {
+      margin-bottom: 10px;
+      color: #ffb74d;
+      font-size: 1.5rem;
+    }
+
+    .tutor-card p {
+      margin-bottom: 10px;
+      font-size: 1rem;
+    }
+
+    .tutor-card button {
+      padding: 12px;
+      background-color: #ffb74d;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: white;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .tutor-card button:hover {
+      background-color: #f57c00;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Learnify</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Find a Tutor</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="./login and signup.html" class="login">Login/Signup</a></li>
+    </ul>
+  </nav>
+
+  <!-- Search Section -->
+  <section class="search-section">
+    <h2>Find a Tutor</h2>
+    <form id="search-form">
+      <input type="text" id="search" placeholder="Enter subject (e.g., Math, Science)" required>
+      <button type="submit">Search</button>
+      <span class="filter-icon" onclick="toggleFilterModal()"><i class="fas fa-filter"></i></span>
+    </form>
+  </section>
+
+  <!-- Filter Modal -->
+  <div class="filter-modal" id="filterModal">
+    <div class="filter-modal-content">
+      <span class="close-btn" onclick="toggleFilterModal()">×</span>
+      <h3>Apply Filters</h3>
+      <form id="filter-form">
+        <label for="availability">Select Availability</label>
+        <select id="availability">
+          <option value="">Select Availability</option>
+          <option value="full-time">Full-Time</option>
+          <option value="part-time">Part-Time</option>
+          <option value="weekends">Weekends Only</option>
+        </select>
+
+        <label for="price">Select Price Range</label>
+        <select id="price">
+          <option value="">Select Price Range</option>
+          <option value="20-30">$20 - $30</option>
+          <option value="30-40">$30 - $40</option>
+          <option value="40-50">$40 - $50</option>
+          <option value="50-60">$50 - $60</option>
+        </select>
+
+        <button type="submit">Apply Filters</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Tutor List Section -->
+  <section class="tutor-list" id="tutor-list">
+    <div class="tutor-card" data-availability="full-time" data-price="30">
+      <img src="https://via.placeholder.com/80" alt="John Doe">
+      <div>
+        <h3>John Doe</h3>
+        <p><strong>Subject:</strong> Math</p>
+        <p><strong>Availability:</strong> Full-Time</p>
+        <p><strong>Price:</strong> $30/hr</p>
+        <button onclick="toggleContactModal()">Contact Tutor</button>
+      </div>
+    </div>
+
+    <div class="tutor-card" data-availability="part-time" data-price="40">
+      <img src="https://via.placeholder.com/80" alt="Mark Johnson">
+      <div>
+        <h3>Mark Johnson</h3>
+        <p><strong>Subject:</strong> English</p>
+        <p><strong>Availability:</strong> Part-Time</p>
+        <p><strong>Price:</strong> $40/hr</p>
+        <button onclick="toggleContactModal()">Contact Tutor</button>
+      </div>
+    </div>
+
+    <div class="tutor-card" data-availability="weekends" data-price="25">
+      <img src="https://via.placeholder.com/80" alt="Sophia Brown">
+      <div>
+        <h3>Sophia Brown</h3>
+        <p><strong>Subject:</strong> Biology</p>
+        <p><strong>Availability:</strong> Weekends Only</p>
+        <p><strong>Price:</strong> $25/hr</p>
+        <button onclick="toggleContactModal()">Contact Tutor</button>
+      </div>
+    </div>
+
+    <div class="tutor-card" data-availability="full-time" data-price="35">
+      <img src="https://via.placeholder.com/80" alt="Alice Cooper">
+      <div>
+        <h3>Alice Cooper</h3>
+        <p><strong>Subject:</strong> History</p>
+        <p><strong>Availability:</strong> Full-Time</p>
+        <p><strong>Price:</strong> $35/hr</p>
+        <button onclick="toggleContactModal()">Contact Tutor</button>
+      </div>
+    </div>
+
+    <div class="tutor-card" data-availability="part-time" data-price="45">
+      <img src="https://via.placeholder.com/80" alt="Ethan Taylor">
+      <div>
+        <h3>Ethan Taylor</h3>
+        <p><strong>Subject:</strong> Physics</p>
+        <p><strong>Availability:</strong> Part-Time</p>
+        <p><strong>Price:</strong> $45/hr</p>
+        <button onclick="toggleContactModal()">Contact Tutor</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Modal -->
+  <div class="contact-modal" id="contactModal" style="display:none;">
+    <div class="contact-modal-content">
+      <span class="close-btn" onclick="toggleContactModal()">×</span>
+      <h3>Contact Tutor</h3>
+      <form id="contact-form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label for="email">Your Email</label>
+        <input type="email" id="email" placeholder="Enter your email address" required>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" placeholder="Write your message to the tutor" rows="4" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Toggle Contact Modal
+    function toggleContactModal() {
+      const modal = document.getElementById('contactModal');
+      modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Handle contact form submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert("Your message has been sent!");
+      toggleContactModal(); // Close modal after submission
+    });
+  </script>
+
+</body>
+</html>

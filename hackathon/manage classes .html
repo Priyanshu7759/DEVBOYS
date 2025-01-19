@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Classes - Learnify</title>
+  <style>
+    /* General Styles */
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  height: 60px;
+  padding: 10px 20px;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffb74d;
+  white-space: nowrap;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #ffb74d;
+}
+
+/* Dashboard */
+.dashboard {
+  padding: 90px 30px 30px;
+}
+
+.dashboard-section {
+  background-color: #292929;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h4, h5 {
+  color: #ffb74d;
+}
+
+button {
+  background-color: #ffb74d;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #f57c00;
+  transform: scale(1.05); /* Slight scaling effect on hover */
+}
+
+.add-class input, .add-class button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #292929;
+  background-color: #292929;
+  color: #e0e0e0;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.add-class input:hover, .add-class button:hover {
+  background-color: #444444; /* Darken input fields and button on hover */
+  border-color: #ffb74d; /* Add border color on hover */
+}
+
+.add-class button {
+  background-color: #ffb74d;
+}
+
+.add-class button:hover {
+  background-color: #f57c00;
+}
+
+/* Edit Class Form */
+.edit-class-form {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-class-container {
+  background-color: #292929;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  color: #e0e0e0;
+}
+
+.edit-class-container h3 {
+  color: #ffb74d;
+}
+
+.edit-class-container input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #292929;
+  background-color: #292929;
+  color: #e0e0e0;
+}
+
+footer {
+  background-color: #1e1e1e;
+  padding: 20px;
+  color: #e0e0e0;
+  text-align: center;
+}
+
+  </style>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Classes - Learnify</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Learnify</div>
+    <ul class="nav-links">
+      <li><a href="#">My Profile</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- Tutor Dashboard -->
+  <div class="dashboard">
+    <div class="dashboard-section">
+      <h4>Manage Classes</h4>
+
+      <!-- Current Classes -->
+      <div class="current-classes">
+        <h5>Current Classes</h5>
+        <ul id="classes-list">
+          <li>
+            <strong>Math 101:</strong> Monday - Friday, 10:00 AM - 11:00 AM<br>
+            <strong>Students Enrolled:</strong> 10<br>
+            <button class="edit-btn" onclick="openEditForm('Math 101', 'Monday - Friday, 10:00 AM - 11:00 AM', '30')">Edit Class</button>
+            <button class="delete-btn" onclick="deleteClass(this)">Delete Class</button>
+          </li>
+          <li>
+            <strong>Physics 101:</strong> Wednesday & Friday, 1:00 PM - 2:30 PM<br>
+            <strong>Students Enrolled:</strong> 8<br>
+            <button class="edit-btn" onclick="openEditForm('Physics 101', 'Wednesday & Friday, 1:00 PM - 2:30 PM', '40')">Edit Class</button>
+            <button class="delete-btn" onclick="deleteClass(this)">Delete Class</button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Add New Class -->
+      <div class="add-class">
+        <h5>Add New Class</h5>
+        <form action="#">
+          <label for="class-name">Class Name:</label><br>
+          <input type="text" id="class-name" placeholder="Enter class name" required><br><br>
+
+          <label for="class-schedule">Schedule:</label><br>
+          <input type="text" id="class-schedule" placeholder="e.g., Monday & Wednesday, 10:00 AM - 11:00 AM" required><br><br>
+
+          <label for="price">Hourly Rate ($):</label><br>
+          <input type="number" id="price" placeholder="Enter hourly rate" required><br><br>
+
+          <label for="class-materials">Upload Materials:</label><br>
+          <input type="file" id="class-materials" multiple><br><br>
+
+          <button type="submit">Add Class</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Class Form (Hidden by default) -->
+  <div id="edit-class-form" class="edit-class-form">
+    <div class="edit-class-container">
+      <h3>Edit Class</h3>
+      <form id="edit-class-details">
+        <label for="edit-class-name">Class Name:</label><br>
+        <input type="text" id="edit-class-name" required><br><br>
+
+        <label for="edit-class-schedule">Schedule:</label><br>
+        <input type="text" id="edit-class-schedule" required><br><br>
+
+        <label for="edit-price">Hourly Rate ($):</label><br>
+        <input type="number" id="edit-price" required><br><br>
+
+        <button type="submit">Save Changes</button>
+        <button type="button" onclick="closeEditForm()">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2025 Learnify. All rights reserved.</p>
+  </div>
+
+  <script>
+    // Function to open the Edit Class form and pre-fill the data
+    function openEditForm(className, classSchedule, price) {
+      document.getElementById('edit-class-name').value = className;
+      document.getElementById('edit-class-schedule').value = classSchedule;
+      document.getElementById('edit-price').value = price;
+
+      // Show the Edit Class form
+      document.getElementById('edit-class-form').style.display = 'flex';
+    }
+
+    // Function to close the Edit Class form
+    function closeEditForm() {
+      document.getElementById('edit-class-form').style.display = 'none';
+    }
+
+    // Handling the form submission
+    document.getElementById('edit-class-details').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Class details updated!');
+      closeEditForm();
+    });
+
+    // Function to delete a class
+    function deleteClass(button) {
+      const classItem = button.parentElement;  // Get the <li> element that contains the class
+      const className = classItem.querySelector('strong').textContent;  // Get the class name
+      const confirmDelete = confirm(`Are you sure you want to delete ${className}?`);
+      if (confirmDelete) {
+        classItem.remove();  // Remove the class from the list
+        alert(`${className} has been deleted.`);
+      }
+    }
+  </script>
+</body>
+</html>
+
+</html>

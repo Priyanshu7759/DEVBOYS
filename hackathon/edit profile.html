@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile - Tutor Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; /* Ensures padding and borders are included in element dimensions */
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+
+    .navbar {
+      width: 100%;
+      height: 60px; /* Fixed height for navbar */
+      padding: 10px 20px;
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+      position: fixed; /* Keeps navbar fixed at the top */
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffb74d;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      color: #e0e0e0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-links a:hover {
+      color: #ffb74d;
+    }
+
+    .edit-profile {
+      padding: 30px;
+      margin: 90px auto; /* Adjust for fixed navbar */
+      max-width: 800px;
+      background-color: #292929;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .edit-profile h2 {
+      color: #ffb74d;
+      margin-bottom: 20px;
+    }
+
+    .edit-profile label {
+      color: #e0e0e0;
+      display: block;
+      margin: 10px 0;
+    }
+
+    .edit-profile input,
+    .edit-profile select,
+    .edit-profile textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 2px solid #292929;
+      border-radius: 8px;
+      background-color: #292929;
+      color: #e0e0e0;
+    }
+
+    .edit-profile input:focus,
+    .edit-profile select:focus,
+    .edit-profile textarea:focus {
+      border-color: #ffb74d;
+      outline: none;
+    }
+
+    .edit-profile button {
+      background-color: #ffb74d;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    .edit-profile button:hover {
+      background-color: #f57c00;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Learnify</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">My Profile</a></li>
+      <li><a href="#">Manage Classes</a></li>
+      <li><a href="#">Messages</a></li>
+      <li><a href="#">Logout</a></li>
+    </ul>
+  </nav>
+
+  <!-- Edit Profile Section -->
+  <div class="edit-profile">
+    <h2>Edit Profile</h2>
+    <form id="edit-profile-form">
+      <!-- Profile Image -->
+      <label for="profile-picture">Profile Picture</label>
+      <input type="file" id="profile-picture" accept="image/*">
+
+      <!-- Personal Information -->
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email address" required>
+
+      <!-- Teaching Information -->
+      <label for="subject">Subjects You Teach</label>
+      <input type="text" id="subject" placeholder="e.g., Math, Science, English" required>
+
+      <label for="availability">Availability</label>
+      <select id="availability" required>
+        <option value="full-time">Full-Time</option>
+        <option value="part-time">Part-Time</option>
+        <option value="weekends">Weekends Only</option>
+      </select>
+
+      <label for="price">Hourly Rate ($)</label>
+      <input type="number" id="price" placeholder="Enter your hourly rate" required>
+
+      <!-- Bio -->
+      <label for="bio">Short Bio</label>
+      <textarea id="bio" rows="4" placeholder="Write a brief bio about yourself" required></textarea>
+
+      <!-- Contact Information -->
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+      <!-- Submit Button -->
+      <button type="submit">Save Changes</button>
+    </form>
+  </div>
+
+  <script>
+    // Handle form submission (for now just log the data)
+    document.getElementById('edit-profile-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value;
+      const availability = document.getElementById('availability').value;
+      const price = document.getElementById('price').value;
+      const bio = document.getElementById('bio').value;
+      const phone = document.getElementById('phone').value;
+
+      // For demonstration, just log the data
+      console.log({ name, email, subject, availability, price, bio, phone });
+      alert("Profile updated successfully!");
+    });
+  </script>
+
+</body>
+</html>

@@ -54,17 +54,6 @@
       color: #ffb74d;
     }
 
-    .search {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 500px;
-      margin-right: 20px;
-    }
-
-    
-
     /* Tutor container styles */
     .tutor-container {
       background-color: #1e1e1e;
@@ -127,15 +116,6 @@
 
     /* Media Query for smaller screens */
     @media (max-width: 768px) {
-      .search {
-        max-width: 100%;
-      }
-
-      .search__input {
-        width: 100%;
-        margin-right: 0;
-      }
-
       .tutor-container {
         padding: 20px;
       }
@@ -154,6 +134,25 @@
       .nav-links li {
         margin: 5px 0;
       }
+      .footer {
+  background-color: #1e1e1e; /* Dark background for the footer */
+  color: #e0e0e0; /* Light text color */
+  padding: 15px 20px;
+  text-align: center;
+  border-top: 2px solid #292929; /* Subtle border at the top */
+}
+
+.footer-links a {
+  color: #ffb74d; /* Highlight color for footer links */
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: #e0e0e0; /* Light color on hover */
+}
+
     }
   </style>
 </head>
@@ -161,10 +160,9 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">Learnify</div>
-   
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
-      <li><a href="#" class="login">Login/Signup</a></li>
+      <li><a href="./login and signup.html" class="login">Login/Signup</a></li>
     </ul>
   </nav>
 
@@ -194,8 +192,25 @@
         <option value="weekends">Weekends Only</option>
       </select>
 
+      <!-- New Qualification input -->
+      <label for="qualification">Qualification</label>
+      <input type="text" id="qualification" placeholder="Enter your qualification (e.g., B.Ed, Ph.D.)" required>
+
+      <!-- New File Upload input -->
+      <label for="resume">Upload Resume/Qualification</label>
+      <input type="file" id="resume" accept=".pdf,.doc,.docx,.jpg,.png" required>
+
       <button type="submit">Submit Application</button>
     </form>
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="#">Social Links</a>
+        <a href="#">About</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Support</a>
+      </div>
+    </footer>
+  
   </div>
 </body>
 </html>
